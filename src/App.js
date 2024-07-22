@@ -1,5 +1,7 @@
 import './App.css';
 
-const App = () => <p>Nome:</p>
+const App = () => {
+  return <p>Ola</p>
+}
 
 export default App;
