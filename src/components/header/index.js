@@ -4,7 +4,7 @@ import '../../styles/header.scss'
 
 function Header(){
     return(
-        <Navbar>
+      <Navbar>
       <Container>
         <Navbar.Brand>
           <img src={LogoImage} />
@@ -26,7 +26,6 @@ function Header(){
         </Navbar.Menu>
       </Container>
     </Navbar>
-
     );
 }
 
