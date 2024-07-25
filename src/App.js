@@ -1,11 +1,11 @@
 import './App.css';
-import Header from './components/header';
+import HomeScreen from './screens/home';
 
 
 const App = () => (
   
   <>
-  <Header/>
+  <HomeScreen/>
   </>
 )
 
