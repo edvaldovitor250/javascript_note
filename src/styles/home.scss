@@ -3,4 +3,52 @@
 .home {
   background-color: $custom-purple;
   height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .home__title {
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .home__subtitle {
+    color: lightblue;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    &.is-outlined {
+      border: 2px solid white;
+      color: rgb(106, 255, 7); 
+      border-radius: 0; 
+      padding: 10px 20px;
+      transition: background-color 0.3s, color 0.3s; 
+      outline: none; 
+
+      &:hover {
+        background-color: black; 
+        color: white; 
+      }
+
+      &:active {
+        background-color: rgb(169, 170, 169); 
+        color: white; 
+      }
+
+      text-decoration: none; 
+    }
+
+    &.is-white {
+      background-color: transparent;
+    }
+
+    &.is-large {
+      padding: 15px 25px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
