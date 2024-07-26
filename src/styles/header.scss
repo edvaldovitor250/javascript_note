@@ -10,4 +10,60 @@ nav.navbar {
       margin-top: 15px;
     }
   }
+
+  .navbar-menu {
+    .navbar-end {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: auto;
+
+      .navbar-item {
+        .buttons {
+          display: flex;
+          gap: 11px;
+          margin-top: -50px;
+          padding-right: 20px; 
+
+          .button {
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            outline: none;
+
+            &.is-primary {
+              background-color: $custom-purple;
+              color: white;
+
+              &:hover {
+                background-color: darkgreen;
+                color: white;
+              }
+
+              &:active {
+                background-color: rgb(80, 80, 80);
+                color: white;
+              }
+            }
+
+            &.is-light {
+              background-color: $custom-purple-darker;
+              color: rgb(255, 254, 254);
+
+              &:hover {
+                background-color: lightgray;
+                color: black;
+              }
+
+              &:active {
+                background-color: darkgray;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
