@@ -1,11 +1,10 @@
 import './App.css';
-import HomeScreen from './screens/home';
-
+import Routes from './routes';
 
 const App = () => (
   
   <>
-  <HomeScreen/>
+    <Routes/>
   </>
 )
 
