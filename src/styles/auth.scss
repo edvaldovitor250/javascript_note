@@ -1,0 +1,39 @@
+@import "./custom_colors";
+
+body {
+    background-color: $custom-purple;
+}
+
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.custom-header {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.custom-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    img {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+}
