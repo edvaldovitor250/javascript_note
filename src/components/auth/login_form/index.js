@@ -1,74 +1,83 @@
 import React, { Fragment, useState } from 'react';
-import { Button, Field, Control, Input, Column, Section, Help, Label } from "rbx";
+import { Button, Column, Help, Label } from "rbx";
 import { Navigate } from "react-router-dom";
-import UserService from "../../../services/users"
+import UserService from "../../../services/users";
+import "../../../styles/login.scss"; 
 
 function LoginForm() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [RedirectToRegister, setRedirectToRegister] = useState(false);
-  const [RedirectToNotes, setRedirectToNotes] = useState(false);
-  const [Error, setError] = useState(false);
+  const [redirectToRegister, setRedirectToRegister] = useState(false);
+  const [redirectToNotes, setRedirectToNotes] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
     try {
-      const user = await UserService.login({ email: email, password: password });
+      await UserService.login({ email: email, password: password });
       setRedirectToNotes(true);
     } catch (error) {
       setError(true)
     }
   }
 
-  if (RedirectToRegister)
-    return <Navigate to={{ pathname: "/register" }} />
-  else if (RedirectToNotes == true)
-    return <Navigate to={{ pathname: "/notes" }} />
+  if (redirectToRegister) return <Navigate to={{ pathname: "/register" }} />
+  if (redirectToNotes) return <Navigate to={{ pathname: "/notes" }} />
 
   return (
     <Fragment>
       <Column.Group centered>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
           <Column size={12}>
-            <Field>
+            <div className="field">
               <Label size="small">Email:</Label>
-              <Control>
-                <Input
+              <p className="control has-icons-left has-icons-right">
+                <input
+                  className="input"
                   type="email"
                   required
-                  name="email"
+                  placeholder="Email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                 />
-              </Control>
-            </Field>
-            <Field>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+                <span className="icon is-small is-right">
+                  <i className="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
               <Label size="small">Password:</Label>
-              <Control>
-                <Input
+              <p className="control has-icons-left">
+                <input
+                  className="input"
                   type="password"
                   required
-                  name="password"
+                  placeholder="Password"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                 />
-              </Control>
-            </Field>
-            <Field>
-              <Control>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control">
                 <Column.Group breakpoint="mobile">
                   <Column>
-                    <a onClick={e => setRedirectToRegister(true)} className="button is-white has-text-custom-purple">Register or</a>
+                    <a onClick={e => setRedirectToRegister(true)} className="button is-white has-text-custom-purple">Register</a>
                   </Column>
                   <Column>
-                    <Button color="custom-purple" outlined>Login</Button>
+                    <button type="submit" className="button is-success">Login</button>
                   </Column>
                 </Column.Group>
-              </Control>
-            </Field>
-            {Error && <Help color="danger">Email or Password invalid</Help>}
+              </p>
+            </div>
+            {error && <Help color="danger">Email or Password invalid</Help>}
           </Column>
         </form>
       </Column.Group>

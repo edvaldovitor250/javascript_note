@@ -1,0 +1,54 @@
+.login-form {
+    .field {
+      margin-bottom: 1.5rem;
+  
+      .control {
+        position: relative;
+  
+        .input {
+          padding-right: 2.5em;
+        }
+  
+        .icon {
+          &.is-left {
+            left: 0.75em;
+            position: absolute;
+          }
+  
+          &.is-right {
+            right: 0.75em;
+            position: absolute;
+          }
+        }
+      }
+    }
+  
+    .button {
+      &.is-success {
+        background-color: #23d160;
+        border-color: #23d160;
+        color: #fff;
+      }
+  
+      &.is-white {
+        background-color: #fff;
+        border-color: #dbdbdb;
+        color: #4a4a4a;
+  
+        &.has-text-custom-purple {
+          color: #6f42c1;
+        }
+      }
+  
+      &.is-custom-purple {
+        background-color: #6f42c1;
+        border-color: #6f42c1;
+        color: #fff;
+      }
+    }
+  
+    .has-text-custom-purple {
+      color: #6f42c1;
+    }
+  }
+  
