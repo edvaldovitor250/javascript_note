@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Button, Field, Control, Input, Column, Help, Label } from "rbx";
 import { redirect } from "react-router-dom";
 import '../../../styles/registerForm.scss';
+import UsersService from '../../../services/users';
 
 function RegisterForm() {
   const [name, setName] = useState("");
@@ -10,13 +11,24 @@ function RegisterForm() {
   const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [error, setError] = useState(false);
 
+  const HaldleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const user = await UsersService.register({name:name, email:email, password:password})
+    setRedirectToLogin(true);
+    }
+     catch (error) {
+      setError(true)
+    }
+  }
+
   if (redirectToLogin === true)
     return <redirect to={{ pathname: "/login" }} />
 
   return (
     <Fragment>
       <Column.Group centered>
-        <form>
+        <form onSubmit={HaldleSubmit}>
           <Column size={12}>
             <Field>
               <Label size="small" className="custom-label">Name:</Label>
