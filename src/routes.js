@@ -12,10 +12,24 @@ const AppRoutes = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <PrivateRoute path="/notes" element={<NotesScreen />} />
+        <Route 
+          path="/notes" 
+          element={
+            <PrivateRoute>
+              <NotesScreen />
+            </PrivateRoute>
+          } 
+        />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
-        < PrivateRoute path="/users/edit" element={<EditUserScreen />} />
+        <Route 
+          path="/users/edit" 
+          element={
+            <PrivateRoute>
+              <EditUserScreen />
+            </PrivateRoute>
+          } 
+        />
       </Routes>
     </Router>
   );
