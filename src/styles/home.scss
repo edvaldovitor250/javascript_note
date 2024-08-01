@@ -20,14 +20,14 @@
   .button {
     &.is-outlined {
       border: 2px solid white;
-      color: rgb(106, 255, 7); 
+      color: rgb(255, 255, 255); 
       border-radius: 0; 
       padding: 10px 20px;
       transition: background-color 0.3s, color 0.3s; 
       outline: none; 
 
       &:hover {
-        background-color: black; 
+        background-color: $custom-purple-darker; 
         color: white; 
       }
 
