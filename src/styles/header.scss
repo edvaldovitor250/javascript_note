@@ -2,7 +2,8 @@
 
 nav.navbar {
   height: 70px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  background-color: WHITE;
 
   .navbar-brand {
     img {
@@ -29,20 +30,20 @@ nav.navbar {
             padding: 10px 20px;
             border-radius: 4px;
             text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color $custom-purple-darker;
             outline: none;
 
             &.is-primary {
               background-color: $custom-purple;
-              color: white;
+              color: rgb(247, 247, 247);
 
               &:hover {
-                background-color: darkgreen;
+                background-color:$custom-purple-darker;
                 color: white;
               }
 
               &:active {
-                background-color: rgb(80, 80, 80);
+                background-color:$custom-purple-darker;
                 color: white;
               }
             }
@@ -52,13 +53,13 @@ nav.navbar {
               color: rgb(255, 254, 254);
 
               &:hover {
-                background-color: lightgray;
-                color: black;
+                background-color:$custom-purple-darker;
+                color: rgb(252, 252, 252);
               }
 
               &:active {
-                background-color: darkgray;
-                color: black;
+                background-color:$custom-purple-darker;
+                color: rgb(255, 250, 250);
               }
             }
           }
