@@ -12,6 +12,7 @@
     "moment": "^2.30.1",
     "rbx": "^2.2.0",
     "react": "^18.3.1",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
