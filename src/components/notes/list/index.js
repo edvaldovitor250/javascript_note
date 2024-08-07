@@ -23,7 +23,11 @@ function ListNotes(props) {
             </Column.Group>
             <List className="notes-list">
                 {props.notes.map((item, key) =>
-                    <List.Item key={key} onClick={() => props.selectNote(item._id)} active={item == props.current_note}>
+                    <List.Item
+                        key={key}
+                        onClick={() => props.selectNote(item._id)}
+                        active={item._id === props.current_note._id}
+                    >
                         <Title size={6}>
                             {item.title.replace(/(<([^>]+)>)/ig, "").substring(0, 15)}
                         </Title>

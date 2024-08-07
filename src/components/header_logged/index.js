@@ -1,4 +1,4 @@
-import { Navbar, Container, Column, Button, Dropdown } from 'rbx';
+import { Navbar, Column, Button, Dropdown } from 'rbx';
 import logoImage from '../../assets/images/logo-white.png';
 import "../../styles/header.scss";
 import UserService from '../../services/users';
@@ -69,9 +69,13 @@ function HeaderLogged(props) {
                                         <Link to="/users/edit">User Edit</Link>
                                     </Dropdown.Item>
                                     <Dropdown.Divider />
-                                    <Dropdown.Item as="div">
-                                        <a href="#" onClick={logOut}>LogOut</a>
+                                    <Dropdown.Item as="a" onClick={(e) => {
+                                        e.preventDefault();
+                                        logOut();
+                                    }}>
+                                        LogOut
                                     </Dropdown.Item>
+
                                 </Dropdown.Content>
                             </Dropdown.Menu>
                         </Dropdown>

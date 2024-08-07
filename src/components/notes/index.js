@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Column } from "rbx";
 import "../../styles/notes.scss";
 import { push as Menu } from 'react-burger-menu';
@@ -43,7 +43,7 @@ function Notes(props) {
   }
 
   return (
-    <Fragment>
+    <>
       <div className="notes" id="notes">
         <Menu 
           pageWrapId={"notes-editor"} 
@@ -68,7 +68,7 @@ function Notes(props) {
         <Editor note={currentNote}/>        
         </Column>
       </div>
-    </Fragment>
+    </>
   )
 }
 

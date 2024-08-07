@@ -71,13 +71,14 @@ function LoginForm() {
               <div className="control">
                 <Column.Group breakpoint="mobile">
                   <Column>
-                    <a
+                    <button
                       onClick={() => setRedirectToRegister(true)}
                       className="custom-login-button is-white has-text-custom-purple"
                     >
                       Register
-                    </a>
+                    </button>
                   </Column>
+
                   <Column>
                     <Button className="custom-login-button is-success" type="submit">Login</Button>
                   </Column>

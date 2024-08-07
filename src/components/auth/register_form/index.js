@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Field, Control, Input, Column, Help, Label } from "rbx";
 import { Navigate } from "react-router-dom";
 import '../../../styles/registerForm.scss';
@@ -26,7 +26,7 @@ function RegisterForm() {
   }
 
   return (
-    <Fragment>
+    <>
       <Column.Group centered>
         <form onSubmit={handleSubmit}>
           <Column size={12}>
@@ -70,13 +70,14 @@ function RegisterForm() {
               <Control>
                 <Column.Group>
                   <Column>
-                    <a
+                    <button
                       onClick={() => setRedirectToLogin(true)}
                       className="button is-white has-text-custom-purple"
                     >
                       Login or
-                    </a>
+                    </button>
                   </Column>
+
                   <Column>
                     <Button color="custom-purple" outlined>
                       Register
@@ -89,7 +90,7 @@ function RegisterForm() {
           </Column>
         </form>
       </Column.Group>
-    </Fragment>
+    </>
   );
 }
 

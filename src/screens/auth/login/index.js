@@ -1,5 +1,5 @@
 import Header from "../../../components/header";
-import { Column, Section, Title, Container, Card, Fragment } from "rbx";
+import { Column, Section, Title, Container, Card } from "rbx";
 import "../../../styles/auth.scss";
 import LoginForm from '../../../components/auth/login_form'
 
