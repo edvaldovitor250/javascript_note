@@ -1,5 +1,5 @@
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Button, Column, Tag, Title, List } from "rbx";
 import Moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function ListNotes(props) {
     return (
-        <Fragment>
+        <>
             <Column.Group breakpoint="mobile">
                 <Column size={6} offset={1}>
                     <Title size={6}>
@@ -48,7 +48,7 @@ function ListNotes(props) {
                     </List.Item>
                 )}
             </List>
-        </Fragment>
+        </>
     )
 }
 
