@@ -6,6 +6,7 @@ import List from "../notes/list/index";
 import NoteService from '../../services/notes';
 
 function Notes(props) {
+
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState({ title: "", body: "", id: "" });
 
@@ -19,6 +20,11 @@ function Notes(props) {
       setNotes(response.data.reverse());
       setCurrentNote(response.data[0]);
     }
+  }
+
+  const createNote = async () => {
+    await NoteService.create();
+    fetchNotes();
   }
 
   const selectNote = (id) => {
@@ -43,7 +49,10 @@ function Notes(props) {
           <List
             notes={notes}
             selectNote={selectNote}
-            current_note={currentNote} />
+            current_note={currentNote} 
+            createNote={createNote}
+            />
+
         </Menu>
 
         <Column size={12} className="notes-editor" id="notes-editor">
