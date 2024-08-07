@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HeaderLogged from "../../../components/header_logged";
+import HeaderLogged from "../../../src/components/header_logged/index";
 import Notes from "../../components/notes";
 
 const NotesScrenn = () => {
