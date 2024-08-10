@@ -19,18 +19,17 @@ function Notes(props) {
   async function fetchNotes() {
     try {
       const response = await NoteService.index();
-      console.log('API Response:', response); // Inspect the response structure
+      console.log('API Response:', response);
       
-      // Check if response.data is defined and an array
       if (response && Array.isArray(response)) {
         console.log('Number of notes:', response.length);
-        setNotes(response.reverse()); // Set notes state
+        setNotes(response.reverse()); 
         if (response.length > 0) {
-          setCurrentNote(response[0]); // Set the first note as the current note
+          setCurrentNote(response[0]);
         }
       } else {
         console.error('Response data is not an array or is undefined');
-        setNotes([]); // Set an empty array if data is not valid
+        setNotes([]);
       }
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -50,7 +49,7 @@ function Notes(props) {
   const updateNote = async (oldNote, params) => {
     const updateNote = await NoteService.update(oldNote._id, params);
     const index = notes.indexOf(oldNote);
-    const newNotes = [...notes]; // Create a new array to avoid mutating the state directly
+    const newNotes = [...notes]; 
     newNotes[index] = updateNote;
     setNotes(newNotes);
     setCurrentNote(updateNote);
