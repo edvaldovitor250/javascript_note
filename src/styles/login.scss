@@ -50,3 +50,99 @@
 .custom-help-message {
   color: #ff0000;
 }
+
+
+.custom-login-form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.custom-login-logo {
+  max-width: 80%;
+  height: auto;
+}
+
+.custom-login-label {
+  font-size: 14px;
+  color: #eb0000;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.custom-login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-button {
+  background-color: #ffffff;
+  color: #6a1b9a;
+  border: 2px solid #6a1b9a;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #f0f0f0;
+  color: #5e1288;
+  border-color: #5e1288;
+}
+
+.login-button {
+  background-color: #6a1b9a;
+  color: #ffffff;
+  border: 2px solid #6a1b9a;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #5e1288;
+  border-color: #5e1288;
+}
+
+.custom-help-message {
+  color: #ff0000;
+}
+
+.custom-login-button {
+  margin-bottom: 20px; 
+  width: 105%; 
+}
+
+.custom-login-buttons-group {
+  margin-bottom: 35px; 
+}
+
+.custom-login-button.is-success {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a;
+}
+
+.custom-login-button.is-success:hover {
+  background-color: #5e1288;
+  border-color: #5e1288;
+}
+
+.custom-login-button.is-white.has-text-custom-purple {
+  color: #6a1b9a;
+}
+
+.custom-login-button.is-white.has-text-custom-purple:hover {
+  color: #5e1288;
+}

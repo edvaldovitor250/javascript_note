@@ -67,24 +67,27 @@ function LoginForm() {
                 </span>
               </div>
             </div>
-            <div className="login-field">
-              <div className="control">
-                <Column.Group breakpoint="mobile">
-                  <Column>
-                    <button
-                      onClick={() => setRedirectToRegister(true)}
-                      className="custom-login-button is-white has-text-custom-purple"
-                    >
-                      Register
-                    </button>
-                  </Column>
 
-                  <Column>
-                    <Button className="custom-login-button is-success" type="submit">Login</Button>
-                  </Column>
-                </Column.Group>
-              </div>
-            </div>
+            <div className="login-field">
+  <div className="control">
+    <Column.Group breakpoint="mobile">
+      <Column>
+        <button
+          onClick={() => setRedirectToRegister(true)}
+          className="custom-login-button register-button"
+        >
+          Register
+        </button>
+      </Column>
+
+      <Column>
+        <Button className="custom-login-button login-button" type="submit">Login</Button>
+      </Column>
+    </Column.Group>
+  </div>
+</div>
+
+
             {error && <Help color="danger" className="custom-help-message">Email or Password invalid</Help>}
           </Column>
         </form>
