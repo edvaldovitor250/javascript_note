@@ -4,8 +4,8 @@ import "../../styles/notes.scss";
 import { push as Menu } from 'react-burger-menu';
 import List from "../notes/list/index";
 import NoteService from '../../services/notes';
-import Editor from '../notes/editor/index'
-import Search from '../notes/search/index'
+import Editor from '../notes/editor/index';
+import Search from '../notes/search/index';
 
 function Notes(props) {
 
@@ -17,12 +17,23 @@ function Notes(props) {
   }, []);
 
   async function fetchNotes() {
-    const response = await NoteService.index();
-    if (response.data.length >= 1) {
-      setNotes(response.data.reverse());
-      setCurrentNote(response.data[0]);
-    } else{
-      setNotes([])
+    try {
+      const response = await NoteService.index();
+      console.log('API Response:', response); // Inspect the response structure
+      
+      // Check if response.data is defined and an array
+      if (response && Array.isArray(response)) {
+        console.log('Number of notes:', response.length);
+        setNotes(response.reverse()); // Set notes state
+        if (response.length > 0) {
+          setCurrentNote(response[0]); // Set the first note as the current note
+        }
+      } else {
+        console.error('Response data is not an array or is undefined');
+        setNotes([]); // Set an empty array if data is not valid
+      }
+    } catch (error) {
+      console.error('Error fetching notes:', error);
     }
   }
 
@@ -39,10 +50,10 @@ function Notes(props) {
   const updateNote = async (oldNote, params) => {
     const updateNote = await NoteService.update(oldNote._id, params);
     const index = notes.indexOf(oldNote);
-    const newNotes = notes;
-    newNotes[index] = updateNote.data;
+    const newNotes = [...notes]; // Create a new array to avoid mutating the state directly
+    newNotes[index] = updateNote;
     setNotes(newNotes);
-    setCurrentNote(oldNote.data);
+    setCurrentNote(updateNote);
   }
 
   const createNote = async () => {
@@ -51,9 +62,7 @@ function Notes(props) {
   }
 
   const selectNote = (id) => {
-    const note = notes.find((note) => {
-      return note._id === id;
-    });
+    const note = notes.find((note) => note._id === id);
     setCurrentNote(note);
   }
 
@@ -70,11 +79,9 @@ function Notes(props) {
           customCrossIcon={false}
         >
           <Column.Group>
-          <Column size={10} offset={1}>
-          
-          <Search searchNotes={searchNotes} fetchNotes={fetchNotes} />
-          </Column>
-          
+            <Column size={10} offset={1}>
+              <Search searchNotes={searchNotes} fetchNotes={fetchNotes} />
+            </Column>
           </Column.Group>
           <List
             notes={notes}
@@ -82,14 +89,11 @@ function Notes(props) {
             current_note={currentNote} 
             deleteNote={deleteNote}
             createNote={createNote}
-            />
-
+          />
         </Menu>
 
         <Column size={12} className="notes-editor" id="notes-editor">
-        <Editor note={currentNote}
-        updateNote={updateNote}
-        />        
+          <Editor note={currentNote} updateNote={updateNote} />        
         </Column>
       </div>
     </>
