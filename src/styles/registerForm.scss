@@ -1,7 +1,88 @@
-.custom-label {
-    font-size: 14px;
-    color: #eb0000;
-    font-weight: bold;
-    max-width: 200px;
+.custom-register-form-r {
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.column-group-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-register-logo-r {
+  max-width: 80%;
+  height: auto;
+}
+
+.custom-register-label-r {
+  font-size: 14px;
+  color: #eb0000;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.custom-register-input-r {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-button-r {
+  background-color: #ffffff;
+  color: #6a1b9a;
+  border: 2px solid #6a1b9a;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+
+  &:hover {
+    background-color: #6a1b9a; 
+    color: #ffffff;
+    border-color: #6a1b9a;
   }
-  
+}
+
+.custom-help-message-r {
+  color: #ff0000;
+}
+
+.custom-register-button-r {
+  margin-bottom: 10px; 
+  width: 105%;
+}
+
+.custom-register-buttons-group-r {
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+  margin-bottom: 35px; 
+}
+
+.custom-register-button-r.is-success {
+  background-color: #6a1b9a;
+  border-color: #6a1b9a; 
+
+  &:hover {
+    background-color: #5e1288;
+    border-color: #5e1288; 
+  }
+}
+
+.custom-register-button-r.is-white.has-text-custom-purple {
+  color: #6a1b9a; 
+
+  &:hover {
+    background-color: #6a1b9a; 
+    color: #ffffff; 
+  }
+}
