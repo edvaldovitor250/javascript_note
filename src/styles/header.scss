@@ -54,13 +54,13 @@ $logo-height: 40px;
       }
   
       &:focus {
-        outline: none; /* Custom focus outline for accessibility */
+        outline: none; 
       }
     }
   
     .dropdown-menu {
       position: absolute;
-      top: 100%; /* Adjusted to appear right below the button */
+      top: 100%; 
       right: 0;
       z-index: 100;
       background-color: #ffffff;
@@ -68,14 +68,14 @@ $logo-height: 40px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 10px 0;
       min-width: 150px;
-      border: 1px solid #e5e5e5; /* Add border to dropdown menu for better separation */
+      border: 1px solid #e5e5e5;
       
       a {
         color: #6a1b9a;
         padding: 10px 20px;
         display: block;
         text-decoration: none;
-        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+        transition: background-color 0.3s ease, color 0.3s ease; 
   
         &:hover {
           background-color: #f0f0f0;
