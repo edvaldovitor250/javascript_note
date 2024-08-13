@@ -1,16 +1,11 @@
 @import "./custom_colors";
 
-nav.navbar {
-  height: 70px;
-  border-bottom: 1px solid rgb(233, 233, 233);
-  background-color: WHITE;
+$header-height: 50px;
+$logo-height: 40px;
 
-  .navbar-brand {
-    img {
-      height: 40px;
-      margin-top: 15px;
-    }
-  }
+.navbar-logged {
+  background-color: #ffffff;
+  height: $header-height;
 
   .navbar-menu {
     .navbar-end {
@@ -18,58 +13,82 @@ nav.navbar {
       align-items: center;
       justify-content: flex-end;
       margin-left: auto;
+    }
+  }
 
-      .navbar-item {
-        .buttons {
-          display: flex;
-          gap: 11px;
-          margin-top: -50px;
-          padding-right: 20px; 
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    height: $header-height;
 
-          .button {
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color $custom-purple-darker;
-            outline: none;
+    img {
+      height: $logo-height;
+      margin-right: auto;
+    }
 
-            &.is-primary {
-              background-color: $custom-purple;
-              color: rgb(247, 247, 247);
+    .navbar-burger {
+      margin-left: auto;
+    }
 
-              &:hover {
-                background-color:$custom-purple-darker;
-                color: white;
-              }
-
-              &:active {
-                background-color:$custom-purple-darker;
-                color: white;
-              }
-            }
-
-            &.is-light {
-              background-color: $custom-purple-darker;
-              color: rgb(255, 254, 254);
-
-              &:hover {
-                background-color:$custom-purple-darker;
-                color: rgb(252, 252, 252);
-              }
-
-              &:active {
-                background-color:$custom-purple-darker;
-                color: rgb(255, 250, 250);
-              }
-            }
-          }
+    
+  }
+  .dropdown-container {
+    position: relative;
+  
+    .dropdown-button {
+      font-weight: bold;
+      border: 2px solid #6a1b9a;
+      color: #6a1b9a;
+      background-color: #ffffff;
+      border-radius: 5px; 
+      padding: 8px 12px; 
+      transition: all 0.3s ease;
+      cursor: pointer; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      &:hover {
+        background-color: #5e1288;
+        border-color: #5e1288;
+        color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+  
+      &:focus {
+        outline: none; /* Custom focus outline for accessibility */
+      }
+    }
+  
+    .dropdown-menu {
+      position: absolute;
+      top: 100%; /* Adjusted to appear right below the button */
+      right: 0;
+      z-index: 100;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      min-width: 150px;
+      border: 1px solid #e5e5e5; /* Add border to dropdown menu for better separation */
+      
+      a {
+        color: #6a1b9a;
+        padding: 10px 20px;
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  
+        &:hover {
+          background-color: #f0f0f0;
+          color: #5e1288;
         }
+      }
+  
+      .dropdown-divider {
+        margin: 0;
+        height: 1px;
+        background-color: #e5e5e5;
       }
     }
   }
+  
 }
-
-.navbar-logged{
-  .navbar-menu{
-    background-color: $custom-purple;  
-  }}

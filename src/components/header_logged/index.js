@@ -1,14 +1,13 @@
 import { Navbar, Column, Button, Dropdown } from 'rbx';
-import logoImage from '../../assets/images/logo-white.png';
+import logoImage from '../../assets/images/logo.png';
 import "../../styles/header.scss";
 import UserService from '../../services/users';
 import { Navigate, Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faList } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 
 function HeaderLogged(props) {
     const [redirectToHome, setRedirectToHome] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const logOut = async () => {
         await UserService.logout();
@@ -17,6 +16,10 @@ function HeaderLogged(props) {
 
     if (redirectToHome) {
         return <Navigate to="/" />;
+    }
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     }
 
     return (
@@ -38,46 +41,38 @@ function HeaderLogged(props) {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </Navbar.Burger>
-
             </Navbar.Brand>
 
             <Navbar.Menu>
-
-                <Navbar.Segment as="div" className="navbar-item navbar-start" align="start">
-                    <Navbar.Item as="div">
-                        <Button
-                            className="open-button"
-                            color="white"
-                            outlined
-                            onClick={() => props.setIsOpen(true)}>
-                            <FontAwesomeIcon icon={faList} />
-                        </Button>
-                    </Navbar.Item>
-                </Navbar.Segment>
-
                 <Navbar.Segment as="div" className="navbar-item navbar-end" align="right">
-                    <Navbar.Item as="div">
+                    <Navbar.Item as="div" className="dropdown-container">
                         <Dropdown>
                             <Dropdown.Trigger>
-                                <Button className="button" color="white" outlined>
+                                <Button
+                                    className="dropdown-button"
+                                    color="white"
+                                    outlined
+                                    onClick={toggleDropdown}
+                                >
                                     <span>Edvaldo ▼</span>
                                 </Button>
                             </Dropdown.Trigger>
-                            <Dropdown.Menu>
-                                <Dropdown.Content>
-                                    <Dropdown.Item as="div">
-                                        <Link to="/users/edit">User Edit</Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Divider />
-                                    <Dropdown.Item as="a" onClick={(e) => {
-                                        e.preventDefault();
-                                        logOut();
-                                    }}>
-                                        LogOut
-                                    </Dropdown.Item>
-
-                                </Dropdown.Content>
-                            </Dropdown.Menu>
+                            {isDropdownOpen && (
+                                <Dropdown.Menu className="dropdown-menu">
+                                    <Dropdown.Content>
+                                        <Dropdown.Item as="div">
+                                            <Link to="/users/edit">User Edit</Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Divider />
+                                        <Dropdown.Item as="a" onClick={(e) => {
+                                            e.preventDefault();
+                                            logOut();
+                                        }}>
+                                            LogOut
+                                        </Dropdown.Item>
+                                    </Dropdown.Content>
+                                </Dropdown.Menu>
+                            )}
                         </Dropdown>
                     </Navbar.Item>
                 </Navbar.Segment>
