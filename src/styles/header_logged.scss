@@ -1,0 +1,97 @@
+
+@import "./custom_colors";
+
+$header-height: 50px;
+$logo-height: 40px;
+.navbar-logged-l {
+    background-color: #ffffff;
+    height: $header-height;
+  
+    .navbar-menu-l {
+      .navbar-end-l {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: auto;
+      }
+    }
+  
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      height: $header-height;
+  
+      img {
+        height: $logo-height;
+        margin-right: auto;
+      }
+  
+      .navbar-burger-l {
+        margin-left: auto;
+      }
+    }
+  
+    .dropdown-container-l {
+      position: absolute;
+      right: 0;
+      top: 0; 
+      display: flex;
+      align-items: center;
+      
+      .dropdown-button-l {
+        font-weight: bold;
+        border: 2px solid #6a1b9a;
+        color: #6a1b9a;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 8px 12px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        &:hover {
+          background-color: #5e1288;
+          border-color: #5e1288;
+          color: #ffffff;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+  
+        &:focus {
+          outline: none;
+        }
+      }
+  
+      .dropdown-menu-l {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 100;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        min-width: 150px;
+        border: 1px solid #e5e5e5;
+  
+        a {
+          color: #6a1b9a;
+          padding: 10px 20px;
+          display: block;
+          text-decoration: none;
+          transition: background-color 0.3s ease, color 0.3s ease;
+  
+          &:hover {
+            background-color: #f0f0f0;
+            color: #5e1288;
+          }
+        }
+  
+        .dropdown-divider-l {
+          margin: 0;
+          height: 1px;
+          background-color: #e5e5e5;
+        }
+      }
+    }
+  }
+  

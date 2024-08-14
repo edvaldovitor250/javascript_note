@@ -1,11 +1,11 @@
 import { Navbar, Column, Button, Dropdown } from 'rbx';
 import logoImage from '../../assets/images/logo.png';
-import "../../styles/header.scss";
+import "../../styles/header_logged.scss";
 import UserService from '../../services/users';
 import { Navigate, Link } from "react-router-dom";
 import { useState } from 'react';
 
-function HeaderLogged(props) {
+function HeaderLogged() {
     const [redirectToHome, setRedirectToHome] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -23,7 +23,7 @@ function HeaderLogged(props) {
     }
 
     return (
-        <Navbar color="custom-purple" className="navbar-logged">
+        <Navbar color="custom-purple" className="navbar-logged-l">
             <Navbar.Brand>
                 <Column.Group>
                     <Column size="11" offset="1">
@@ -33,10 +33,10 @@ function HeaderLogged(props) {
                     </Column>
                 </Column.Group>
                 <Navbar.Burger
-                    className="navbar-burger burger"
+                    className="navbar-burger-l burger"
                     aria-label="menu"
                     aria-expanded="false"
-                    data-target="navbar-menu">
+                    data-target="navbar-menu-l">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -44,12 +44,12 @@ function HeaderLogged(props) {
             </Navbar.Brand>
 
             <Navbar.Menu>
-                <Navbar.Segment as="div" className="navbar-item navbar-end" align="right">
-                    <Navbar.Item as="div" className="dropdown-container">
+                <Navbar.Segment as="div" className="navbar-item-l navbar-end-l" align="right">
+                    <Navbar.Item as="div" className="dropdown-container-l">
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <Button
-                                    className="dropdown-button"
+                                    className="dropdown-button-l"
                                     color="white"
                                     outlined
                                     onClick={toggleDropdown}
@@ -58,12 +58,12 @@ function HeaderLogged(props) {
                                 </Button>
                             </Dropdown.Trigger>
                             {isDropdownOpen && (
-                                <Dropdown.Menu className="dropdown-menu">
+                                <Dropdown.Menu className="dropdown-menu-l">
                                     <Dropdown.Content>
                                         <Dropdown.Item as="div">
                                             <Link to="/users/edit">User Edit</Link>
                                         </Dropdown.Item>
-                                        <Dropdown.Divider />
+                                        <Dropdown.Divider className="dropdown-divider-l" />
                                         <Dropdown.Item as="a" onClick={(e) => {
                                             e.preventDefault();
                                             logOut();
