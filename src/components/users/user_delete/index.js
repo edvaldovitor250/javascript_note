@@ -1,27 +1,30 @@
-
 import React, { useState } from 'react';
-import { Button } from "rbx";
+import { Button } from 'rbx';
 import UsersService from '../../../services/users';
-import { redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; 
+import '../../../styles/user_delete.scss';
 
 function UsersDelete() {
   const [redirectToHome, setRedirectToHome] = useState(false);
+  const navigate = useNavigate(); 
 
   const deleteUser = async () => {
-    if (window.confirm('Are you sure you wish to delete this account?')){
-        UsersService.delete()
-      setRedirectToHome(true)
+    if (window.confirm('Are you sure you wish to delete this account?')) {
+      await UsersService.delete();
+      setRedirectToHome(true);
     }
+  };
+
+  if (redirectToHome) {
+    navigate('/'); 
+    return null;
   }
 
-  if(redirectToHome == true)
-    return <redirect to={{pathname: "/"}}/>
-
-  return(
-    <Button color="danger" onClick={() => deleteUser()}>
+  return (
+    <Button className="custom-register-button-Delete" color="danger" onClick={deleteUser}>
       Excluir conta
     </Button>
-  )
+  );
 }
 
 export default UsersDelete;

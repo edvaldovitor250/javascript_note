@@ -1,6 +1,7 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { Button, Field, Control, Input, Column, Help, Label } from "rbx";
+import React, { useState, useEffect } from 'react';
+import { Button, Field, Control, Input, Column, Help, Label } from 'rbx';
 import UsersService from '../../../services/users';
+import '../../../styles/user_edit_form.scss';
 
 function UsersEditForm() {
   const [email, setEmail] = useState("");
@@ -11,47 +12,49 @@ function UsersEditForm() {
     const user = await JSON.parse(localStorage.getItem('user'));
     setName(user['name']);
     setEmail(user['email']);
-  }
+  };
 
-  useEffect(() =>{
-    initializeUser()    
-  }, [])
+  useEffect(() => {
+    initializeUser();
+  }, []);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
     try {
       await UsersService.update({ email: email, name: name });
-      setStatus("success")
+      setStatus("success");
     } catch (err) {
-      setStatus("error")
+      setStatus("error");
     }
-  }
+  };
 
   return (
-    <Fragment>
-      <form onSubmit={handleSubmit}>
+    <>
+      <form className="custom-register-form-formEdit" onSubmit={handleSubmit}>
         <Field>
           <Control>
-            <Label className="has-text-grey">Full Name</Label>
+            <Label className="custom-register-label-formEdit">Full Name</Label>
             <Input
-              type="name"
+              type="text"
               value={name || ""}
               onChange={e => setName(e.target.value)}
               required
               name="name"
+              className="custom-register-input-formEdit"
             />
           </Control>
         </Field>
         <Field>
           <Control>
-            <Label className="has-text-grey">Email</Label>
+            <Label className="custom-register-label-formEdit">Email</Label>
             <Input
               type="email"
               value={email || ""}
               onChange={e => setEmail(e.target.value)}
               required
               name="email"
+              className="custom-register-input-formEdit"
             />
           </Control>
         </Field>
@@ -60,22 +63,20 @@ function UsersEditForm() {
           <Control>
             <Column.Group>
               <Column className="has-text-right">
-                <Button color="custom-purple" outlined>Update</Button>
+                <Button className="custom-register-button-formEdit" color="custom-purple" outlined>Update</Button>
               </Column>
             </Column.Group>
           </Control>
         </Field>
-        {status == "error" &&
-          <Help color="danger">Problem in update</Help>
+        {status === "error" &&
+          <Help className="custom-help-message-formEdit" color="danger">Problem in update</Help>
         }
-        {status == "success" &&
-          <Help color="primary">Updated with success</Help>
+        {status === "success" &&
+          <Help className="custom-help-message-formEdit" color="primary">Updated with success</Help>
         }
       </form>
-    </Fragment>
-  )
-
-
+    </>
+  );
 }
 
 export default UsersEditForm;
