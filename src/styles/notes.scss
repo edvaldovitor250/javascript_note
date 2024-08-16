@@ -1,25 +1,31 @@
-@import "./custom_colors";
-
 .notes {
   height: calc(100% - 70px);
-  margin-left: 0px;
-  margin-top: 0px;
-}
- 
-.bm-menu {
-  background: white;
-  padding-top: 10px;
-}
+  margin-left: 0;
+  margin-top: 0;
 
-.list-item.is-active{
-  background-color: $custom-grey-light;
-}
+  .bm-menu {
+    background: #ffffff;
+    padding-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-right: 1px solid #e0e0e0; 
+  }
 
-.notes-editor{
-  padding: 0;
-  height: calc(100% - 43px);
+  .list-item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0; 
 
-  .quill{
-    height: 100%;
+    &.is-active {
+      background-color: #f0f0f0; 
+      color: #333333;
+    }
+  }
+
+  .notes-editor {
+    padding: 0;
+    height: calc(100% - 43px);
+
+    .quill {
+      height: 100%;
+    }
   }
 }

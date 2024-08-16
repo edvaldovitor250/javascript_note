@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import { Button } from 'rbx';
-import UsersService from '../../../services/users';
-import { useNavigate } from 'react-router-dom'; 
+import { Navigate } from 'react-router-dom';
+import UsersService from '../../../services/users'; 
 import '../../../styles/user_delete.scss';
 
 function UsersDelete() {
   const [redirectToHome, setRedirectToHome] = useState(false);
-  const navigate = useNavigate(); 
+  const [error, setError] = useState(null); 
 
   const deleteUser = async () => {
     if (window.confirm('Are you sure you wish to delete this account?')) {
-      await UsersService.delete();
-      setRedirectToHome(true);
+      try {
+        await UsersService.delete();
+        setRedirectToHome(true);
+      } catch (err) {
+        setError('Failed to delete account. Please try again later.');
+        console.error('Error deleting user:', err);
+      }
     }
   };
 
   if (redirectToHome) {
-    navigate('/'); 
-    return null;
+    return <Navigate to="/" />;
   }
 
   return (
-    <Button className="custom-register-button-Delete" color="danger" onClick={deleteUser}>
-      Excluir conta
-    </Button>
+    <div>
+      {error && <p className="error-message">{error}</p>} 
+      <Button className="custom-register-button-Delete" color="danger" onClick={deleteUser}>
+        Excluir conta
+      </Button>
+    </div>
   );
 }
 
