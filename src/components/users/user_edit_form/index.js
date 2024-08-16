@@ -83,7 +83,7 @@ function UsersEditForm() {
         <Help className="custom-help-message-formEdit" color="danger">Problem in update</Help>
       )}
       {status === "success" && (
-        <Help className="custom-help-message-formEdit" color="primary">Updated with success</Help>
+        <Help className="custom-help-message-formEdit-u" color="primary">Updated with success</Help>
       )}
       {status === "problem_in_update" && (
         <Help className="custom-help-message-formEdit" color="danger">No changes detected</Help>

@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import { Button, Field, Control, Input, Column, Help, Label } from "rbx";
-import UserService from '../../../services/users';
+import UsersService from '../../../services/users';
 import '../../../styles/user_edit_password.scss';
 
 function UsersEditFormPassword() {
+
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
   const [status, setStatus] = useState(null);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    if (password === passwordConfirmation) {
+    if (password === password_confirmation) {
       try {
-        await UserService.updatePassword({ password });
-        setStatus("success");
+        await UsersService.updatePassword({ password: password });
+        setStatus("success")
       } catch (err) {
-        console.error('Error updating password:', err);
-        setStatus("error_update");
+        setStatus("error")
       }
     } else {
-      setStatus("error_confirmation_password");
+      setStatus("error_confirmation_password")
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit} className="custom-register-form-password">
@@ -44,7 +44,7 @@ function UsersEditFormPassword() {
           <Label className="custom-register-label-password">Password Confirmation</Label>
           <Input
             type="password"
-            value={passwordConfirmation}
+            value={password_confirmation}
             onChange={e => setPasswordConfirmation(e.target.value)}
             required
             name="password_confirmation"
@@ -57,9 +57,9 @@ function UsersEditFormPassword() {
         <Control>
           <Column.Group>
             <Column className="has-text-right">
-              <Button 
-                className="custom-register-button-password is-success" 
-                color="custom-purple" 
+              <Button
+                className="custom-register-button-password is-success"
+                color="custom-purple"
                 outlined
               >
                 Update Password
@@ -75,8 +75,10 @@ function UsersEditFormPassword() {
         <Help className="custom-help-message-password" color="danger">Passwords don't match</Help>
       }
       {status === "success" &&
-        <Help className="custom-help-message-password" color="primary">Updated successfully</Help>
-      }
+  <Help className="custom-help-message-password-u">Updated successfully</Help>
+}
+
+
     </form>
   );
 }
