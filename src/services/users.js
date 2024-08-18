@@ -21,10 +21,15 @@ const UsersService = {
   },
 
   updatePassword: async (params) => {
-    await Api.put("/users/password", params, {
-      headers: {'x-access-token': localStorage.getItem('token')}
-    })
-  },
+    try {
+        await Api.put("/users/password", params, {
+          headers: {'x-access-token': localStorage.getItem('token')}
+        });
+    } catch (error) {
+        console.error("Error updating password:", error);
+    }
+},
+
   
   delete: async () => {
     await Api.delete("/users", {
