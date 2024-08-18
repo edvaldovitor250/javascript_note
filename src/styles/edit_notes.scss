@@ -1,15 +1,32 @@
+@import "./custom_colors";
+
 .ql-container {
     background-color: #6a0dad; 
-    color: #ffffff; 
+    color: white; 
   }
   
   .ql-editor {
-    background-color: #6a0dad; 
-    color: #ffffff; 
+    color: white;
   }
   
   .ql-toolbar {
     background-color: #6a0dad; 
-    color: #ffffff; 
+    color: white; 
+  }
+  
+  .ql-toolbar .ql-picker-label {
+    color: white; 
+  }
+  
+  .ql-toolbar .ql-picker-item {
+    color: white; 
+  }
+  
+  .ql-toolbar .ql-stroke {
+    stroke: white; 
+  }
+  
+  .ql-toolbar .ql-fill {
+    fill: white;
   }
   

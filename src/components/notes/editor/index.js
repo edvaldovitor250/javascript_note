@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css'; 
-import '../../../styles/';  
+import '../../../styles/edit_notes.scss';  
 
 function Editor(props) {
   const [currentContent, setCurrentContent] = useState('');
@@ -28,8 +28,8 @@ function Editor(props) {
   useEffect(() => {
     if (quillRef.current) {
       const editor = quillRef.current.getEditor();
-      editor.root.style.backgroundColor = '#6a0dad'; // Purple background
-      editor.root.style.color = '#ffffff'; // White text
+      editor.root.style.backgroundColor = '#6a0dad'; // Definindo a cor de fundo
+      editor.root.style.color = 'white'; // Definindo a cor do texto
     }
   }, [quillRef.current]);
 
