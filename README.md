@@ -7,7 +7,8 @@
 </p>
 
 <p align="center">
-Este projeto foi desenvolvido utilizando React e está integrado com uma API personalizada que criei, chamada "Javascript Note API". O principal objetivo deste projeto é explorar a criatividade na conexão entre frontend e backend, demonstrando como uma aplicação pode ser construída de forma coesa e funcional, aproveitando ao máximo as potencialidades de ambos os lados.</p>
+  Este projeto foi desenvolvido utilizando React e está integrado com uma API personalizada que criei, chamada "Javascript Note API". O principal objetivo deste projeto é explorar a criatividade na conexão entre frontend e backend, demonstrando como uma aplicação pode ser construída de forma coesa e funcional, aproveitando ao máximo as potencialidades de ambos os lados.
+</p>
 
 ---
 
@@ -38,13 +39,6 @@ Este projeto foi desenvolvido utilizando React e está integrado com uma API per
   <img src="https://github.com/user-attachments/assets/9c0ded9c-a642-47c6-9e03-6c09a3c3f87d" alt="Tela de Editar Senha e Excluir Conta" width="600px"/>
 </p>
 
-<p align="left">
-  📝 <strong>Título:</strong> Insira o título do vídeo.<br/>
-  🔗 <strong>Link do vídeo do YouTube:</strong> Cole o link do vídeo.<br/>
-  🗂️ <strong>Escolha a categoria:</strong> Selecione a categoria mais adequada.<br/>
-  📄 <strong>Descrição do vídeo:</strong> Forneça uma descrição detalhada do vídeo.
-</p>
-
 ---
 
 <section>
@@ -52,17 +46,27 @@ Este projeto foi desenvolvido utilizando React e está integrado com uma API per
   <ol>
     <li>
       Clone o repositório utilizando o comando Git no seu ambiente de desenvolvimento:
-      <code>git clone https://github.com/EdnaldoLuiz/alura-flix.git</code>
+      <code>git clone https://github.com/edvaldovitor250/javascript_note.git</code>
     </li>
     <li>
-      No terminal, navegue até o diretório recém-clonado e execute o seguinte comando para iniciar o servidor:
-      <code>npm run dev</code>
+      No terminal, navegue até o diretório recém-clonado e execute o seguinte comando para instalar as dependências:
+      <code>npm i</code> e em seguida inicie o projeto com <code>npm run</code>
     </li>
     <li>
-      Acesse a aplicação em seu navegador e ela será executada na porta 3001 🎉
+      Acesse a aplicação em seu navegador; ela será executada na porta 3001 🎉
     </li>
   </ol>
 </section>
+
+---
+
+<h2 align="center">🛠️ Descrição do Projeto</h2>
+
+<p align="center">
+  O projeto foi desenvolvido com React e SCSS, utilizando vários componentes feitos seguindo o padrão do React. As principais funcionalidades incluem criar, deletar, atualizar e visualizar notas. Ele também implementa criptografia, estando diretamente conectado ao backend para operações seguras. É importante ressaltar que o projeto só funciona plenamente quando integrado com a API do backend; caso contrário, ele permanecerá estático.
+</p>
+
+---
 
 <h2 align="center">💻 Desenvolvedor</h2>
 
@@ -72,6 +76,7 @@ Este projeto foi desenvolvido utilizando React e está integrado com uma API per
     <sub>Edvaldo Vitor</sub>
   </a>
 </div>
+
 ---
 
 <h2 align="center">🛠️ Tech Stack Utilizada</h2>
@@ -82,8 +87,7 @@ Este projeto foi desenvolvido utilizando React e está integrado com uma API per
       <th><img src="https://skillicons.dev/icons?i=js" width=100px height=100px/></th>
       <th><img src="https://skillicons.dev/icons?i=react" width=100px height=100px/></th>
       <th><img src="https://skillicons.dev/icons?i=npm" width=100px height=100px/></th>
-      <th><img src="https://skillicons.dev/icons?i=styledcomponents" width=100px height=100px/></th>
-      <th><img src="https://skillicons.dev/icons?i=figma" width=100px height=100px/></th>
+      <th><img src="https://skillicons.dev/icons?i=scss" width=100px height=100px/></th>
     </tr>
   </thead>
   <tbody align="center">
@@ -91,9 +95,12 @@ Este projeto foi desenvolvido utilizando React e está integrado com uma API per
       <td>JavaScript</td>
       <td>React</td>
       <td>NPM</td>
-      <td>Styled Components</td>
-      <td>Figma</td>
+      <td>Scss</td>
     </tr>
+      <td> ES6+</td>
+  <td>18.2.0</td>
+  <td>9.6.7</td>
+  <td> 1.54.5</td>
   </tbody>
 </table>
 
