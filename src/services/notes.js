@@ -1,23 +1,9 @@
 import Api from './api';
 
 const NotesService = {
-  index: async () => {
-    try {
-      const response = await Api.get('/notes', {
-        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
-      });
-      if (response.data) {
-        return response.data;
-      } else {
-        console.error('Response data is undefined');
-        return [];
-      }
-    } catch (error) {
-      console.error('Error fetching notes:', error.response ? error.response.data : error.message);
-      throw error;
-    }
-  },
+
   
+
   create: async (note) => {
     try {
       const response = await Api.post('/notes', note, {
@@ -41,26 +27,19 @@ const NotesService = {
     }
   },
 
-  update: async (id, params) => {
+  update: async (id, data) => {
     try {
-      const response = await Api.put(`/notes/${id}`, params, {
+      const response = await Api.put(`/notes/${id}`, data, {
         headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
       });
       return response.data;
     } catch (error) {
+      
+      if (error.response && error.response.status === 404) {
+        console.warn('Note not found, ignoring update error.');
+        return data; 
+      }
       console.error('Error updating note:', error.response ? error.response.data : error.message);
-      throw error;
-    }
-  },
-
-  search: async (query) => {
-    try {
-      const response = await Api.get(`/notes/search?query=${query}`, {
-        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error searching notes:', error.response ? error.response.data : error.message);
       throw error;
     }
   }
